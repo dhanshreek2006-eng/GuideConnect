@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- ================= MENTORS HERO ================= -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <p class="text-primary fw-bold mb-2">
+            MENTORS
+        </p>
+
+        <h1 class="display-5 fw-bold">
+            Learn From Experienced Mentors
+        </h1>
+
+        <p class="lead text-muted mt-3">
+            Connect with experienced professionals and get
+            guidance to achieve your learning and career goals.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MENTOR LIST ================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="mb-5">
+
+            <h2 class="fw-bold">
+                Meet Our Mentors
+            </h2>
+
+            <p class="text-muted">
+                Explore mentors based on their expertise and experience.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for mentor in mentors %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <!-- Mentor Photo -->
+
+                        {% if mentor.image %}
+
+                            <img src="{{ mentor.image }}"
+                                 alt="{{ mentor.name }}"
+                                 class="rounded-circle mb-3"
+                                 style="width:120px;height:120px;object-fit:cover;">
+
+                        {% else %}
+
+                            <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                                 style="width:120px;height:120px;">
+
+                                <span class="text-muted">
+                                    Photo
+                                </span>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- Mentor Name -->
+
+                        <h4 class="fw-bold">
+                            {{ mentor.name }}
+                        </h4>
+
+
+                        <!-- Expertise -->
+
+                        <p class="text-primary fw-semibold">
+                            {{ mentor.expertise }}
+                        </p>
+
+
+                        <!-- Experience -->
+
+                        <p class="text-muted">
+                            {{ mentor.experience }} Experience
+                        </p>
+
+
+                        <!-- Bio -->
+
+                        <p class="text-muted">
+                            {{ mentor.bio }}
+                        </p>
+
+
+                        <!-- VIEW PROFILE -->
+
+                        <a href="{% url 'mentor_profile' mentor.id %}"
+                           class="btn btn-primary">
+
+                            View Profile
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="text-center py-5">
+
+                    <h4>
+                        No mentors available.
+                    </h4>
+
+                    <p class="text-muted">
+                        Mentors will appear here once they are added.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

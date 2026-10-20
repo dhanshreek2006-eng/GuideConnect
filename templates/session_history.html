@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="mb-5">
+
+        <p class="text-primary fw-bold mb-2">
+            SESSION HISTORY
+        </p>
+
+        <h1 class="fw-bold">
+            Your Session History
+        </h1>
+
+        <p class="text-muted">
+            Review your completed mentorship sessions.
+        </p>
+
+    </div>
+
+
+    {% if sessions %}
+
+        <div class="row g-4">
+
+            {% for session in sessions %}
+
+                <div class="col-md-6">
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body p-4">
+
+                            <h4 class="fw-bold">
+                                {{ session.topic }}
+                            </h4>
+
+                            <p class="mb-2">
+                                <strong>Mentor:</strong>
+                                {{ session.mentor_name }}
+                            </p>
+
+                            <p class="mb-2">
+                                <strong>Date:</strong>
+                                {{ session.session_date }}
+                            </p>
+
+                            <p class="mb-3">
+                                <strong>Time:</strong>
+                                {{ session.session_time }}
+                            </p>
+
+                            <span class="badge bg-secondary">
+                                {{ session.status }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="text-center py-5">
+
+            <h4>
+                No completed sessions yet.
+            </h4>
+
+            <p class="text-muted">
+                Your completed mentorship sessions will appear here.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="mb-5">
+        <p class="text-primary fw-bold mb-2">MY SESSIONS</p>
+
+        <h1 class="fw-bold">
+            Your Mentorship Sessions
+        </h1>
+
+        <p class="text-muted">
+            View and manage your upcoming mentorship sessions.
+        </p>
+    </div>
+
+
+    {% if sessions %}
+
+        <div class="row g-4">
+
+            {% for session in sessions %}
+
+                <div class="col-md-6">
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body p-4">
+
+                            <h4 class="fw-bold">
+                                {{ session.topic }}
+                            </h4>
+
+                            <p class="mb-2">
+                                <strong>Mentor:</strong>
+                                {{ session.mentor_name }}
+                            </p>
+
+                            <p class="mb-2">
+                                <strong>Date:</strong>
+                                {{ session.session_date }}
+                            </p>
+
+                            <p class="mb-3">
+                                <strong>Time:</strong>
+                                {{ session.session_time }}
+                            </p>
+
+                            <span class="badge bg-success">
+                                {{ session.status }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="text-center py-5">
+
+            <h4>No sessions booked yet.</h4>
+
+            <p class="text-muted">
+                Book your first mentoring session to get started.
+            </p>
+
+            <a href="/book-session/" class="btn btn-primary">
+                Book a Session
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

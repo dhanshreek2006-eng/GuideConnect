@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GuideConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold"
+               href="/">
+                GuideConnect
+            </a>
+
+
+            <!Mobile Menu Button> 
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!--Navigation-->
+            <div class="collapse navbar-collapse"
+                 id="mainNavbar">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <!--Home-->
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/">
+                            Home
+                        </a>
+
+                    </li>
+
+
+                    <!-- Mentors -->
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/mentors/">
+                            Mentors
+                        </a>
+
+                    </li>
+
+
+                    <!-- Programs -->
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/programs/">
+                            Programs
+                        </a>
+
+                    </li>
+
+
+                    <!-- Sessions -->
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/sessions/">
+                            Sessions
+                        </a>
+
+                    </li>
+
+
+                    <!-- Dashboard -->
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/dashboard/">
+                            Dashboard
+                        </a>
+
+                    </li>
+
+
+                    <!-- About -->
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/about/">
+                            About
+                        </a>
+
+                    </li>
+
+
+                    <!-- Contact -->
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/contact/">
+                            Contact
+                        </a>
+
+                    </li>
+
+
+                    <!-- Authentication -->
+                    {% if user.is_authenticated %}
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="/logout/">
+                                Logout
+                            </a>
+
+                        </li>
+
+                    {% else %}
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="/login/">
+                                Login
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="/register/">
+                                Register
+                            </a>
+
+                        </li>
+
+                    {% endif %}
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Page Content -->
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- Footer -->
+
+    <footer class="bg-dark text-white py-4 mt-5">
+
+        <div class="container text-center">
+
+            <h5>
+                GuideConnect
+            </h5>
+
+            <p>
+                Learn • Grow • Succeed
+            </p>
+
+            <p class="mb-0">
+                © 2026 GuideConnect. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>

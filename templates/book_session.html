@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <p class="text-primary fw-bold mb-2">
+            BOOK A SESSION
+        </p>
+
+        <h1 class="fw-bold">
+            Schedule a Mentorship Session
+        </h1>
+
+        <p class="text-muted">
+            Choose a mentor, select a topic and schedule your session.
+        </p>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card border-0 shadow-sm">
+
+                <div class="card-body p-4">
+
+                    {% if success %}
+
+                    <div class="alert alert-success">
+                        <strong>Session booked successfully!</strong>
+                        Your mentorship session has been added to My Sessions.
+                    </div>
+
+                    {% endif %}
+
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <!-- Mentor -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Mentor
+                            </label>
+
+                            <select name="mentor_name"
+                                    class="form-select"
+                                    required>
+
+                                <option value="">
+                                    Select Mentor
+                                </option>
+
+                                <option value="Atharva Kumbhar">
+                                    Atharva Kumbhar
+                                </option>
+
+                                <option value="Priya Patil">
+                                    Priya Patil
+                                </option>
+
+                                <option value="Arjun Mehta">
+                                    Arjun Mehta
+                                </option>
+
+                                <option value="Sneha Joshi">
+                                    Sneha Joshi
+                                </option>
+
+                                <option value="Rohan Deshmukh">
+                                    Rohan Deshmukh
+                                </option>
+
+                                <option value="Ananya Kulkarni">
+                                    Ananya Kulkarni
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Topic -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Session Topic
+                            </label>
+
+                            <input type="text"
+                                   name="topic"
+                                   class="form-control"
+                                   placeholder="Example: Python & Django"
+                                   required>
+
+                        </div>
+
+
+                        <!-- Date -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Session Date
+                            </label>
+
+                            <input type="date"
+                                   name="session_date"
+                                   class="form-control"
+                                   required>
+
+                        </div>
+
+
+                        <!-- Time -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Session Time
+                            </label>
+
+                            <input type="time"
+                                   name="session_time"
+                                   class="form-control"
+                                   required>
+
+                        </div>
+
+
+                        <!-- Submit -->
+                        <div class="d-grid mt-4">
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Book Session
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                    <!-- My Sessions -->
+                    <div class="text-center mt-4">
+
+                        <a href="/my-sessions/"
+                           class="text-decoration-none">
+                            View My Sessions →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

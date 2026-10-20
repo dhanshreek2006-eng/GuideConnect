@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Contact Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+
+        <p class="text-primary fw-bold mb-2">CONTACT</p>
+
+        <h1 class="fw-bold">
+            We'd Love to Hear From You
+        </h1>
+
+        <p class="lead text-muted">
+            Have a question, need support, or want to know more
+            about GuideConnect? Send us a message.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <!-- Contact Information -->
+            <div class="col-md-5">
+
+                <h2 class="fw-bold mb-4">
+                    Get in Touch
+                </h2>
+
+                <p class="text-muted">
+                    Our team is here to help you with questions about
+                    mentors, programs, sessions and your GuideConnect
+                    experience.
+                </p>
+
+                <div class="mt-4">
+
+                    <h5 class="fw-bold">
+                        Support
+                    </h5>
+
+                    <p class="text-muted">
+                        Get help with your account and sessions.
+                    </p>
+
+                </div>
+
+                <div class="mt-4">
+
+                    <h5 class="fw-bold">
+                        Email
+                    </h5>
+
+                    <p class="text-muted">
+                        support@guideconnect.com
+                    </p>
+
+                </div>
+
+                <div class="mt-4">
+
+                    <h5 class="fw-bold">
+                        Frequently Asked Questions
+                    </h5>
+
+                    <p class="text-muted">
+                        Find answers to common questions about
+                        GuideConnect.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact Form -->
+            <div class="col-md-7">
+
+                <div class="card border-0 shadow-sm">
+
+                    <div class="card-body p-4">
+
+                        <h3 class="fw-bold mb-4">
+                            Send Us a Message
+                        </h3>
+
+                        {% if success %}
+
+                        <div class="alert alert-success">
+                            Your message has been sent successfully!
+                        </div>
+
+                        {% endif %}
+
+
+                        <form method="POST">
+
+                            {% csrf_token %}
+
+                            <!-- Name -->
+                            <div class="mb-3">
+
+                                <label class="form-label">
+                                    Name
+                                </label>
+
+                                <input type="text"
+                                       name="name"
+                                       class="form-control"
+                                       placeholder="Enter your name"
+                                       required>
+
+                            </div>
+
+
+                            <!-- Email -->
+                            <div class="mb-3">
+
+                                <label class="form-label">
+                                    Email
+                                </label>
+
+                                <input type="email"
+                                       name="email"
+                                       class="form-control"
+                                       placeholder="Enter your email"
+                                       required>
+
+                            </div>
+
+
+                            <!-- Subject -->
+                            <div class="mb-3">
+
+                                <label class="form-label">
+                                    Subject
+                                </label>
+
+                                <input type="text"
+                                       name="subject"
+                                       class="form-control"
+                                       placeholder="Enter subject"
+                                       required>
+
+                            </div>
+
+
+                            <!-- Message -->
+                            <div class="mb-3">
+
+                                <label class="form-label">
+                                    Message
+                                </label>
+
+                                <textarea name="message"
+                                          class="form-control"
+                                          rows="5"
+                                          placeholder="Write your message..."
+                                          required></textarea>
+
+                            </div>
+
+
+                            <!-- Submit -->
+                            <div class="d-grid mt-4">
+
+                                <button type="submit"
+                                        class="btn btn-primary">
+                                    Send Message
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="fw-bold text-center mb-5">
+            Frequently Asked Questions
+        </h2>
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="accordion" id="faqAccordion">
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+                            <button class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqOne">
+                                How do I find a mentor?
+                            </button>
+                        </h2>
+
+                        <div id="faqOne"
+                             class="accordion-collapse collapse show"
+                             data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+                                Visit the Mentors page and explore
+                                mentors based on their skills and
+                                areas of expertise.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqTwo">
+                                How can I book a session?
+                            </button>
+
+                        </h2>
+
+                        <div id="faqTwo"
+                             class="accordion-collapse collapse"
+                             data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+                                Login to your account and use the
+                                Book Session option to schedule a
+                                mentorship session.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqThree">
+                                Can I track my learning progress?
+                            </button>
+
+                        </h2>
+
+                        <div id="faqThree"
+                             class="accordion-collapse collapse"
+                             data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+                                Yes. Your Dashboard allows you to
+                                view goals, learning progress,
+                                sessions and mentor feedback.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
